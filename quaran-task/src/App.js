@@ -1,16 +1,18 @@
 import React from 'react';
-import {Container} from 'react-bootstrap'
-import NavBar from './Layout/NavBar'
+import './App.scss'
+import NavBar from './Layout/Navigation/NavBar'
+import {BrowserRouter, Switch, Route} from 'react-router-dom'
+import TaskCreator from './Tasks/TaskCreator';
 
 function App() {
   return (
-    <Container>
-        <div>
-      <header>
-        <NavBar/>
-      </header>
-    </div>
-    </Container>
+    <BrowserRouter>
+      <NavBar/>
+      <Switch>
+        <Route path='/' exact/>
+        <Route path='/taskcreator' component={TaskCreator}/>
+      </Switch>
+    </BrowserRouter>
     
   );
 }
